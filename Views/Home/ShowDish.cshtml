@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <a href="/AddDish">Add A Dish</a>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Chef</th>
+            <th>Tastiness</th>
+            <th>Calories</th>
+        </tr>
+        @{
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.nameofdish</td>
+                    <td>@item.myChef.FirstName</td>
+                    <td>@item.tastiness</td>
+                    <td>@item.calories</td>
+                </tr>
+            }
+        }
+    </table>
+
+</body>
+</html>

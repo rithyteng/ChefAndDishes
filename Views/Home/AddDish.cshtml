@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    @model Dishes
+    <form asp-action="AddingDish" asp-controller="Home" method="post">
+
+        <span asp-validation-for="nameofdish"></span>
+        <label asp-for="nameofdish"></label>
+        <input asp-for="nameofdish">
+        <p></p>
+
+        <span asp-validation-for="calories"></span>
+        <label asp-for="calories"></label>
+        <input asp-for="calories">
+        <p></p>
+
+        <span asp-validation-for="description"></span>
+        <label asp-for="description"></label>
+        <input asp-for="description">
+        <p></p>
+
+        <span asp-validation-for="tastiness"></span>
+        <label asp-for="tastiness"></label>
+        <select asp-for="tastiness">
+            <option value="5">5</option>
+            <option value="4">4</option>
+            <option value="3">3</option>
+            <option value="2">2</option>
+            <option value="1">1</option>
+        </select>
+        <p></p>
+
+        <span asp-validation-for="Id"></span>
+        <label asp-for="Id"></label>
+        <select asp-for="Id">
+            @{
+                @foreach (var item in ViewBag.AllChef)
+                {
+                    <option value=@item.Id>@item.FirstName</option>
+                }
+            }
+        </select>
+
+        <button>Submit</button>
+    </form>
+</body>
+</html>
